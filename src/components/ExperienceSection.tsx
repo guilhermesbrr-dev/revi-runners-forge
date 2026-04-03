@@ -20,7 +20,7 @@ const experiences = [
 ];
 
 const ExperienceSection = () => (
-  <section className="py-24 px-4 gradient-bg">
+  <section id="experience" className="py-24 px-4 relative z-10">
     <div className="container">
       <ScrollReveal>
         <p className="text-primary font-semibold text-xs tracking-[0.3em] uppercase text-center mb-3">Por que participar</p>

@@ -9,7 +9,7 @@ import g6 from "@/assets/gallery-6.jpg";
 const images = [g1, g2, g3, g4, g5, g6];
 
 const GallerySection = () => (
-  <section className="py-24 px-4 gradient-bg">
+  <section id="galeria" className="py-24 px-4 relative z-10">
     <div className="container">
       <ScrollReveal>
         <p className="text-primary font-semibold text-xs tracking-[0.3em] uppercase text-center mb-3">Social Proof</p>

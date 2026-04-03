@@ -41,7 +41,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden z-10">
       <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsla(210,100%,4%,0.75) 0%, hsla(210,100%,3%,0.92) 100%)" }} />
 
