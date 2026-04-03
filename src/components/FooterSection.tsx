@@ -1,7 +1,7 @@
 import { Instagram, Linkedin } from "lucide-react";
 
 const FooterSection = () => (
-  <footer className="border-t border-border py-10 px-4">
+  <footer className="border-t border-border py-10 px-4 relative z-10">
     <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
       <div>
         <p className="font-heading font-bold text-sm text-foreground">Revi Runners</p>
