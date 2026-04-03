@@ -8,7 +8,7 @@ const events = [
 ];
 
 const CalendarSection = () => (
-  <section className="py-24 px-4 gradient-bg-alt">
+  <section id="agenda" className="py-24 px-4 gradient-bg-alt relative z-10">
     <div className="container">
       <ScrollReveal>
         <p className="text-primary font-semibold text-xs tracking-[0.3em] uppercase text-center mb-3">Agenda</p>

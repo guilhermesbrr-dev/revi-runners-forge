@@ -25,7 +25,7 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 px-4 gradient-bg">
+    <section id="faq" className="py-24 px-4 relative z-10">
       <div className="container max-w-2xl">
         <ScrollReveal>
           <p className="text-primary font-semibold text-xs tracking-[0.3em] uppercase text-center mb-3">Dúvidas</p>
