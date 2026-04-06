@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Send, User, Mail, Phone, Building2, Briefcase } from "lucide-react";
+import { Send, User, Mail, Phone, Building2, Briefcase, Loader2 } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { Progress } from "./ui/progress";
 
@@ -12,6 +12,8 @@ const RegistrationForm = () => {
     shirtSize: "", distance: "", scheduleWeeknight: false, scheduleSaturday: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const progress = useMemo(() => {
     const fields = [form.name, form.email, form.phone, form.company, form.role, form.shirtSize, form.distance];
@@ -29,9 +31,41 @@ const RegistrationForm = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const payload = {
+      Nome: form.name,
+      "E-mail": form.email,
+      WhatsApp: form.phone,
+      Empresa: form.company,
+      Cargo: form.role,
+      "Tamanho Camiseta": form.shirtSize,
+      Distância: form.distance,
+      "Horário": [
+        form.scheduleWeeknight ? "Noite (semana)" : "",
+        form.scheduleSaturday ? "Manhã (sábado)" : "",
+      ].filter(Boolean).join(", "),
+    };
+
+    try {
+      const res = await fetch("https://formspree.io/f/xwpkgjvn", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Erro ao enviar. Tente novamente.");
+      }
+    } catch {
+      setError("Erro de conexão. Verifique sua internet.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -42,8 +76,8 @@ const RegistrationForm = () => {
             <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-5">
               <Send className="w-7 h-7 text-primary-foreground" />
             </div>
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Inscrição confirmada</h3>
-            <p className="text-muted-foreground text-sm">Bem-vindo ao Revi Runners. Nos vemos na pista 🏃‍♂️</p>
+            <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Inscrição Confirmada!</h3>
+            <p className="text-muted-foreground text-sm">Em breve entraremos em contato com os detalhes do seu kit. Nos vemos na pista 🏃‍♂️</p>
           </div>
         </div>
       </section>
@@ -65,7 +99,6 @@ const RegistrationForm = () => {
 
         <ScrollReveal delay={100}>
           <form onSubmit={handleSubmit} className="glass-card neon-border rounded-lg p-6 md:p-8 space-y-5 relative overflow-hidden">
-            {/* Progress bar */}
             <div className="absolute top-0 left-0 right-0">
               <Progress value={progress} className="h-1 rounded-none bg-border" />
             </div>
@@ -156,8 +189,15 @@ const RegistrationForm = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn-neon w-full py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider mt-2">
-              Confirmar inscrição
+            {error && <p className="text-red-400 text-xs text-center">{error}</p>}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-neon w-full py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider mt-2 flex items-center justify-center gap-2 disabled:opacity-50"
+            >
+              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+              {loading ? "Enviando..." : "Confirmar inscrição"}
             </button>
           </form>
         </ScrollReveal>
