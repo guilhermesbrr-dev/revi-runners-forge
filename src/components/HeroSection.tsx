@@ -24,12 +24,10 @@ const useCountdown = (target: Date) => {
 
 const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
   <div className="flex flex-col items-center">
-    <div className="glass-card rounded-lg w-16 h-16 md:w-20 md:h-20 flex items-center justify-center neon-border">
-      <span className="font-heading text-2xl md:text-3xl font-bold text-primary">
-        {String(value).padStart(2, "0")}
-      </span>
-    </div>
-    <span className="text-xs text-muted-foreground mt-2 uppercase tracking-widest">{label}</span>
+    <span className="font-heading text-3xl md:text-4xl font-bold text-foreground tabular-nums">
+      {String(value).padStart(2, "0")}
+    </span>
+    <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-[0.2em]">{label}</span>
   </div>
 );
 
@@ -41,36 +39,35 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden z-10">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsla(210,100%,4%,0.75) 0%, hsla(210,100%,3%,0.92) 100%)" }} />
+      <div className="absolute inset-0 bg-background/85" />
 
-      <div className="relative z-10 container text-center px-4 py-24 md:py-32">
+      <div className="relative z-10 container text-center px-4 py-32 md:py-40">
         <img
           src={logoImg}
           alt="Revi Runners"
-          className="mx-auto w-20 h-20 md:w-28 md:h-28 mb-8 opacity-0 animate-fade-up drop-shadow-2xl"
+          className="mx-auto w-16 h-16 md:w-20 md:h-20 mb-10 opacity-0 animate-fade-up"
           width={512}
           height={512}
         />
 
-        <p className="text-primary font-semibold text-sm md:text-base tracking-[0.3em] uppercase mb-4 opacity-0 animate-fade-up-d1">
+        <p className="text-muted-foreground font-medium text-xs tracking-[0.4em] uppercase mb-6 opacity-0 animate-fade-up-d1">
           Revi Runners Networking
         </p>
 
         <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 opacity-0 animate-fade-up-d2 leading-tight">
           Networking em{" "}
-          <span className="text-primary neon-text-glow">Movimento</span>
+          <span className="text-primary">Movimento</span>
         </h1>
 
-        <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-12 opacity-0 animate-fade-up-d3 leading-relaxed">
+        <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto mb-16 opacity-0 animate-fade-up-d3 leading-relaxed">
           O ecossistema que conecta negócios e alta performance. Treinos mensais no Parque Ibirapuera para executivos e empreendedores.
         </p>
 
-        {/* Countdown */}
-        <div className="mb-12 opacity-0 animate-fade-up-d3">
-          <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] mb-4">Próximo treino em</p>
-          <div className="flex justify-center gap-3 md:gap-5">
+        <div className="mb-16 opacity-0 animate-fade-up-d3">
+          <p className="text-[10px] text-muted-foreground uppercase tracking-[0.3em] mb-5">Próximo treino em</p>
+          <div className="flex justify-center gap-8 md:gap-12">
             <CountdownUnit value={countdown.days} label="Dias" />
             <CountdownUnit value={countdown.hours} label="Horas" />
             <CountdownUnit value={countdown.minutes} label="Min" />
@@ -80,7 +77,7 @@ const HeroSection = () => {
 
         <button
           onClick={scrollToForm}
-          className="btn-neon px-10 py-4 rounded-lg text-sm md:text-base font-bold uppercase tracking-wider opacity-0 animate-fade-up-d4"
+          className="btn-neon px-10 py-4 rounded-lg text-sm font-bold uppercase tracking-wider opacity-0 animate-fade-up-d4"
         >
           Garantir minha vaga
         </button>

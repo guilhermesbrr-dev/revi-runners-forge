@@ -25,7 +25,7 @@ const StickyHeader = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "py-2 bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-background/50"
+          ? "py-2 bg-background/90 backdrop-blur-xl border-b border-border/30"
           : "py-4 bg-transparent"
       }`}
     >
@@ -34,21 +34,21 @@ const StickyHeader = () => {
           <img
             src={logoImg}
             alt="Revi Runners"
-            className={`transition-all duration-500 ${scrolled ? "w-8 h-8" : "w-10 h-10"}`}
+            className={`transition-all duration-500 ${scrolled ? "w-7 h-7" : "w-9 h-9"}`}
             width={512}
             height={512}
           />
-          <span className={`font-heading font-bold text-foreground transition-all duration-500 ${scrolled ? "text-sm" : "text-base"}`}>
+          <span className={`font-heading font-bold text-foreground transition-all duration-500 ${scrolled ? "text-xs" : "text-sm"}`}>
             Revi Runners
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-xs uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               {item.label}
             </a>
@@ -58,7 +58,7 @@ const StickyHeader = () => {
         <button
           onClick={scrollToForm}
           className={`btn-neon rounded-md font-bold uppercase tracking-wider transition-all duration-500 ${
-            scrolled ? "text-[10px] px-4 py-2" : "text-xs px-5 py-2.5"
+            scrolled ? "text-[10px] px-4 py-1.5" : "text-[10px] px-5 py-2"
           }`}
         >
           Inscrição
