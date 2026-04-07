@@ -24,17 +24,17 @@ const ExperienceSection = () => (
     <div className="container">
       <ScrollReveal>
         <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-4">Por que participar</p>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-20">
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary text-glow text-center mb-20">
           The Revi Experience
         </h2>
       </ScrollReveal>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-10 max-w-4xl mx-auto">
         {experiences.map((item, i) => (
           <ScrollReveal key={item.title} delay={i * 120}>
             <div className="text-center group">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-6 border border-border group-hover:border-muted-foreground/30 transition-colors duration-500">
-                <item.icon className="w-5 h-5 text-muted-foreground" strokeWidth={1.5} />
+              <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6 border border-border group-hover:border-primary/40 transition-colors duration-500">
+                <item.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-500" strokeWidth={1.5} />
               </div>
               <h3 className="font-heading text-lg font-bold text-foreground mb-3">{item.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>

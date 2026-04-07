@@ -72,12 +72,12 @@ const RegistrationForm = () => {
     return (
       <section id="inscricao" className="py-32 px-4">
         <div className="container max-w-lg">
-          <div className="glass-card rounded-lg p-12 text-center">
-            <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center mx-auto mb-6">
-              <Send className="w-5 h-5 text-muted-foreground" />
+          <div className="glass-card rounded-xl p-12 text-center">
+            <div className="w-14 h-14 rounded-full border border-primary/30 flex items-center justify-center mx-auto mb-6">
+              <Send className="w-5 h-5 text-primary" />
             </div>
             <h3 className="font-heading text-xl font-bold text-foreground mb-3">Inscrição Confirmada!</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">Em breve entraremos em contato com os detalhes do seu kit.</p>
+            <p className="text-foreground/60 text-sm leading-relaxed">Em breve entraremos em contato com os detalhes do seu kit.</p>
           </div>
         </div>
       </section>
@@ -89,18 +89,18 @@ const RegistrationForm = () => {
       <div className="container max-w-lg">
         <ScrollReveal>
           <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-4">Inscrição</p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary text-glow text-center mb-4">
             Garanta sua vaga
           </h2>
-          <p className="text-muted-foreground text-xs text-center mb-12">
+          <p className="text-foreground/60 text-xs text-center mb-12">
             Vagas limitadas por treino para garantir a qualidade do networking
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <form onSubmit={handleSubmit} className="glass-card rounded-lg p-6 md:p-8 space-y-5 relative overflow-hidden">
+          <form onSubmit={handleSubmit} className="glass-card rounded-xl p-6 md:p-8 space-y-5 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0">
-              <Progress value={progress} className="h-0.5 rounded-none bg-border" />
+              <Progress value={progress} className="h-0.5 rounded-none bg-border [&>div]:bg-primary" />
             </div>
 
             <p className="text-[10px] text-muted-foreground text-right uppercase tracking-wider pt-1">{progress}% completo</p>
@@ -163,8 +163,8 @@ const RegistrationForm = () => {
                       key={d}
                       className={`flex-1 text-center cursor-pointer rounded-lg py-3 text-xs font-medium transition-all duration-200 ${
                         form.distance === d
-                          ? "bg-foreground text-background"
-                          : "border border-border text-muted-foreground hover:border-muted-foreground/30"
+                          ? "bg-primary text-primary-foreground font-bold"
+                          : "border border-border text-muted-foreground hover:border-primary/30"
                       }`}
                     >
                       <input type="radio" name="distance" value={d} checked={form.distance === d} onChange={handleChange} className="sr-only" />

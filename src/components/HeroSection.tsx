@@ -24,10 +24,10 @@ const useCountdown = (target: Date) => {
 
 const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
   <div className="flex flex-col items-center">
-    <span className="font-heading text-3xl md:text-4xl font-bold text-foreground tabular-nums">
+    <span className="font-heading text-3xl md:text-5xl font-bold text-primary tabular-nums text-glow">
       {String(value).padStart(2, "0")}
     </span>
-    <span className="text-[10px] text-muted-foreground mt-1 uppercase tracking-[0.2em]">{label}</span>
+    <span className="text-[10px] text-muted-foreground mt-1.5 uppercase tracking-[0.2em]">{label}</span>
   </div>
 );
 
@@ -41,7 +41,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
-      <div className="absolute inset-0 bg-background/85" />
+      <div className="absolute inset-0 bg-background/90" />
 
       <div className="relative z-10 container text-center px-4 py-32 md:py-40">
         <img
@@ -56,12 +56,12 @@ const HeroSection = () => {
           Revi Runners Networking
         </p>
 
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 opacity-0 animate-fade-up-d2 leading-tight">
-          Networking em{" "}
-          <span className="text-primary">Movimento</span>
+        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 opacity-0 animate-fade-up-d2 leading-tight">
+          <span className="text-foreground">Networking em </span>
+          <span className="text-primary text-glow">Movimento</span>
         </h1>
 
-        <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto mb-16 opacity-0 animate-fade-up-d3 leading-relaxed">
+        <p className="text-foreground/70 text-sm md:text-base max-w-lg mx-auto mb-16 opacity-0 animate-fade-up-d3 leading-relaxed">
           O ecossistema que conecta negócios e alta performance. Treinos mensais no Parque Ibirapuera para executivos e empreendedores.
         </p>
 

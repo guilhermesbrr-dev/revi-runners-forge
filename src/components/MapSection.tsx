@@ -6,7 +6,7 @@ const MapSection = () => (
     <div className="container max-w-3xl">
       <ScrollReveal>
         <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-4">Localização</p>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-16">
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary text-glow text-center mb-16">
           Portão 6 · Ibirapuera
         </h2>
       </ScrollReveal>
@@ -17,7 +17,7 @@ const MapSection = () => (
             title="Portão 6 – Parque Ibirapuera"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.8!2d-46.6603!3d-23.5852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59f1edfc5c97%3A0x2cc17bfdd0a3e8a0!2sPort%C3%A3o%206%20-%20Parque%20Ibirapuera!5e0!3m2!1spt-BR!2sbr!4v1"
             width="100%"
-            height="300"
+            height="320"
             style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) brightness(0.85) contrast(1.1)" }}
             allowFullScreen
             loading="lazy"

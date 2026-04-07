@@ -48,7 +48,7 @@ const StickyHeader = () => {
             <a
               key={item.href}
               href={item.href}
-              className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               {item.label}
             </a>
@@ -57,7 +57,7 @@ const StickyHeader = () => {
 
         <button
           onClick={scrollToForm}
-          className={`btn-neon rounded-md font-bold uppercase tracking-wider transition-all duration-500 ${
+          className={`btn-ghost rounded-md font-bold uppercase tracking-wider transition-all duration-500 ${
             scrolled ? "text-[10px] px-4 py-1.5" : "text-[10px] px-5 py-2"
           }`}
         >

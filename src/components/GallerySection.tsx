@@ -13,7 +13,7 @@ const GallerySection = () => (
     <div className="container">
       <ScrollReveal>
         <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-4">Social Proof</p>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-20">
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary text-glow text-center mb-20">
           O Lifestyle Revi
         </h2>
       </ScrollReveal>
@@ -30,7 +30,7 @@ const GallerySection = () => (
                 width={640}
                 height={640}
               />
-              <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-background/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           </ScrollReveal>
         ))}
