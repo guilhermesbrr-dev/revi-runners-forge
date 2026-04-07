@@ -12,7 +12,7 @@ import FooterSection from "@/components/FooterSection";
 import FloatingCTA from "@/components/FloatingCTA";
 
 const Index = () => (
-  <div className="min-h-screen bg-background texture-bg">
+  <div className="min-h-screen bg-background">
     <StickyHeader />
     <HeroSection />
     <SponsorsSection />

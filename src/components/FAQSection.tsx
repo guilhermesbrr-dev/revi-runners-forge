@@ -25,33 +25,33 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 px-4 relative z-10">
+    <section id="faq" className="py-32 px-4">
       <div className="container max-w-2xl">
         <ScrollReveal>
-          <p className="text-primary font-semibold text-xs tracking-[0.3em] uppercase text-center mb-3">Dúvidas</p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-            Perguntas <span className="text-primary">Frequentes</span>
+          <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-4">Dúvidas</p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-16">
+            Perguntas Frequentes
           </h2>
         </ScrollReveal>
 
-        <div className="space-y-3">
+        <div className="space-y-px">
           {faqs.map((faq, i) => (
             <ScrollReveal key={i} delay={i * 80}>
-              <div className="glass-card rounded-lg overflow-hidden">
+              <div className="border-b border-border">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left"
+                  className="w-full flex items-center justify-between py-5 text-left"
                 >
-                  <span className="font-semibold text-sm text-foreground pr-4">{faq.q}</span>
+                  <span className="font-medium text-sm text-foreground pr-4">{faq.q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-primary shrink-0 transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}
+                    className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}
                   />
                 </button>
                 <div
                   className="overflow-hidden transition-all duration-300"
                   style={{ maxHeight: open === i ? "200px" : "0" }}
                 >
-                  <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                  <p className="pb-5 text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
                 </div>
               </div>
             </ScrollReveal>

@@ -70,14 +70,14 @@ const RegistrationForm = () => {
 
   if (submitted) {
     return (
-      <section id="inscricao" className="py-24 px-4">
+      <section id="inscricao" className="py-32 px-4">
         <div className="container max-w-lg">
-          <div className="glass-card neon-border-strong rounded-lg p-10 text-center">
-            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-5">
-              <Send className="w-7 h-7 text-primary-foreground" />
+          <div className="glass-card rounded-lg p-12 text-center">
+            <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center mx-auto mb-6">
+              <Send className="w-5 h-5 text-muted-foreground" />
             </div>
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Inscrição Confirmada!</h3>
-            <p className="text-muted-foreground text-sm">Em breve entraremos em contato com os detalhes do seu kit. Nos vemos na pista 🏃‍♂️</p>
+            <h3 className="font-heading text-xl font-bold text-foreground mb-3">Inscrição Confirmada!</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">Em breve entraremos em contato com os detalhes do seu kit.</p>
           </div>
         </div>
       </section>
@@ -85,38 +85,38 @@ const RegistrationForm = () => {
   }
 
   return (
-    <section id="inscricao" className="py-24 px-4">
+    <section id="inscricao" className="py-32 px-4">
       <div className="container max-w-lg">
         <ScrollReveal>
-          <p className="text-primary font-semibold text-xs tracking-[0.3em] uppercase text-center mb-3">Inscrição</p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-3">
-            Garanta sua <span className="text-primary">vaga</span>
+          <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-4">Inscrição</p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground text-center mb-4">
+            Garanta sua vaga
           </h2>
-          <p className="text-muted-foreground text-xs text-center mb-10">
+          <p className="text-muted-foreground text-xs text-center mb-12">
             Vagas limitadas por treino para garantir a qualidade do networking
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <form onSubmit={handleSubmit} className="glass-card neon-border rounded-lg p-6 md:p-8 space-y-5 relative overflow-hidden">
+          <form onSubmit={handleSubmit} className="glass-card rounded-lg p-6 md:p-8 space-y-5 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0">
-              <Progress value={progress} className="h-1 rounded-none bg-border" />
+              <Progress value={progress} className="h-0.5 rounded-none bg-border" />
             </div>
 
             <p className="text-[10px] text-muted-foreground text-right uppercase tracking-wider pt-1">{progress}% completo</p>
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Nome</label>
+                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Nome</label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="name" required value={form.name} onChange={handleChange} className="form-input pl-10" placeholder="Seu nome completo" />
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Empresa</label>
+                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Empresa</label>
                 <div className="relative">
-                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="company" value={form.company} onChange={handleChange} className="form-input pl-10" placeholder="Sua empresa" />
                 </div>
               </div>
@@ -124,47 +124,47 @@ const RegistrationForm = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">E-mail Corporativo</label>
+                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">E-mail Corporativo</label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="email" type="email" required value={form.email} onChange={handleChange} className="form-input pl-10" placeholder="nome@empresa.com" />
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">WhatsApp</label>
+                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">WhatsApp</label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="phone" type="tel" required value={form.phone} onChange={handleChange} className="form-input pl-10" placeholder="(11) 99999-9999" />
                 </div>
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Cargo</label>
+              <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Cargo</label>
               <div className="relative">
-                <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                 <input name="role" value={form.role} onChange={handleChange} className="form-input pl-10" placeholder="CEO, Diretor, Gerente..." />
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Camiseta</label>
+                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Camiseta</label>
                 <select name="shirtSize" required value={form.shirtSize} onChange={handleChange} className="form-input">
                   <option value="">Tamanho</option>
                   {shirtSizes.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Distância</label>
+                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Distância</label>
                 <div className="flex gap-2">
                   {distances.map((d) => (
                     <label
                       key={d}
-                      className={`flex-1 text-center cursor-pointer rounded-lg py-3 text-xs font-semibold transition-all duration-200 ${
+                      className={`flex-1 text-center cursor-pointer rounded-lg py-3 text-xs font-medium transition-all duration-200 ${
                         form.distance === d
-                          ? "btn-neon"
-                          : "glass-card border border-border text-muted-foreground hover:border-primary/30"
+                          ? "bg-foreground text-background"
+                          : "border border-border text-muted-foreground hover:border-muted-foreground/30"
                       }`}
                     >
                       <input type="radio" name="distance" value={d} checked={form.distance === d} onChange={handleChange} className="sr-only" />
@@ -176,7 +176,7 @@ const RegistrationForm = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-muted-foreground mb-2 uppercase tracking-wider">Preferência de horário</label>
+              <label className="block text-[10px] font-medium text-muted-foreground mb-2 uppercase tracking-wider">Preferência de horário</label>
               <div className="flex gap-6">
                 <label className="flex items-center gap-2 cursor-pointer text-sm text-foreground">
                   <input type="checkbox" name="scheduleWeeknight" checked={form.scheduleWeeknight} onChange={handleChange} className="w-4 h-4 rounded accent-primary" />
@@ -189,7 +189,7 @@ const RegistrationForm = () => {
               </div>
             </div>
 
-            {error && <p className="text-red-400 text-xs text-center">{error}</p>}
+            {error && <p className="text-destructive text-xs text-center">{error}</p>}
 
             <button
               type="submit"
