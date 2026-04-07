@@ -15,26 +15,26 @@ const sponsors = [
 ];
 
 const SponsorsSection = () => (
-  <section className="py-20 px-4">
+  <section className="py-24 px-4">
     <div className="container">
       <ScrollReveal>
-        <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-10">Apoiadores</p>
+        <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-12">Apoiadores</p>
       </ScrollReveal>
 
       <ScrollReveal delay={100}>
-        <div className="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-8 max-w-3xl mx-auto">
           {sponsors.map(({ name, url, logo }) => (
             <a
               key={name}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="sponsor-logo flex items-center justify-center px-3 py-2"
+              className="sponsor-logo flex items-center justify-center px-3 py-2 rounded-md"
             >
               <img
                 src={logo}
                 alt={name}
-                className="h-[35px] w-auto max-w-[100px] object-contain"
+                className="h-[38px] w-auto max-w-[110px] object-contain"
                 loading="lazy"
               />
             </a>
