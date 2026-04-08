@@ -15,30 +15,44 @@ const sponsors = [
 ];
 
 const SponsorsSection = () => (
-  <section className="py-24 px-4">
+  <section className="py-16 px-4">
     <div className="container">
       <ScrollReveal>
-        <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-12">Apoiadores</p>
+        <p className="text-muted-foreground text-[10px] tracking-[0.3em] uppercase text-center mb-8 font-heading">
+          Marcas que correm com a gente
+        </p>
       </ScrollReveal>
 
       <ScrollReveal delay={100}>
-        <div className="flex flex-wrap justify-center gap-8 max-w-3xl mx-auto">
-          {sponsors.map(({ name, url, logo }) => (
-            <a
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sponsor-logo flex items-center justify-center px-3 py-2 rounded-md"
-            >
-              <img
-                src={logo}
-                alt={name}
-                className="h-[38px] w-auto max-w-[110px] object-contain"
-                loading="lazy"
-              />
-            </a>
-          ))}
+        <div className="sport-card-white rounded-2xl py-6 px-4 max-w-4xl mx-auto overflow-hidden">
+          <div className="relative">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+            
+            {/* Scrolling track */}
+            <div className="overflow-hidden">
+              <div className="flex animate-scroll-left w-max gap-12 items-center">
+                {/* Double the logos for seamless loop */}
+                {[...sponsors, ...sponsors].map(({ name, url, logo }, i) => (
+                  <a
+                    key={`${name}-${i}`}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 flex items-center justify-center px-2 hover:scale-110 transition-transform duration-300"
+                  >
+                    <img
+                      src={logo}
+                      alt={name}
+                      className="h-[35px] w-auto max-w-[100px] object-contain"
+                      loading="lazy"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </ScrollReveal>
     </div>

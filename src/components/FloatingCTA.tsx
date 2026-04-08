@@ -5,10 +5,10 @@ const FloatingCTA = () => (
     href="https://wa.me/"
     target="_blank"
     rel="noopener noreferrer"
-    className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+    className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary flex items-center justify-center text-primary-foreground shadow-lg hover:shadow-primary/30 hover:scale-110 transition-all duration-300"
     title="Grupo VIP WhatsApp"
   >
-    <MessageCircle className="w-5 h-5" />
+    <MessageCircle className="w-6 h-6" />
   </a>
 );
 
