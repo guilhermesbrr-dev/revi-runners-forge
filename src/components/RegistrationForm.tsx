@@ -70,14 +70,14 @@ const RegistrationForm = () => {
 
   if (submitted) {
     return (
-      <section id="inscricao" className="py-32 px-4">
+      <section id="inscricao" className="py-24 px-4">
         <div className="container max-w-lg">
-          <div className="glass-card rounded-xl p-12 text-center">
-            <div className="w-14 h-14 rounded-full border border-primary/30 flex items-center justify-center mx-auto mb-6">
-              <Send className="w-5 h-5 text-primary" />
+          <div className="sport-card rounded-2xl p-12 text-center border-primary/20">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+              <Send className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="font-heading text-xl font-bold text-foreground mb-3">Inscrição Confirmada!</h3>
-            <p className="text-foreground/60 text-sm leading-relaxed">Em breve entraremos em contato com os detalhes do seu kit.</p>
+            <h3 className="font-heading text-2xl font-bold text-foreground uppercase mb-3">Inscrição Confirmada!</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">Em breve entraremos em contato com os detalhes do seu kit.</p>
           </div>
         </div>
       </section>
@@ -85,36 +85,38 @@ const RegistrationForm = () => {
   }
 
   return (
-    <section id="inscricao" className="py-32 px-4">
+    <section id="inscricao" className="py-24 px-4">
       <div className="container max-w-lg">
         <ScrollReveal>
-          <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase text-center mb-4">Inscrição</p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary text-glow text-center mb-4">
-            Garanta sua vaga
-          </h2>
-          <p className="text-foreground/60 text-xs text-center mb-12">
-            Vagas limitadas por treino para garantir a qualidade do networking
-          </p>
+          <div className="text-center mb-12">
+            <span className="badge-sport mb-4 inline-block">VAGAS LIMITADAS</span>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold uppercase text-foreground mt-4">
+              GARANTA SUA <span className="text-primary text-glow-sm">VAGA</span>
+            </h2>
+            <p className="text-muted-foreground text-sm mt-4">
+              Preencha o formulário e entre para a comunidade
+            </p>
+          </div>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <form onSubmit={handleSubmit} className="glass-card rounded-xl p-6 md:p-8 space-y-5 relative overflow-hidden">
+          <form onSubmit={handleSubmit} className="sport-card rounded-2xl p-6 md:p-8 space-y-5 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0">
-              <Progress value={progress} className="h-0.5 rounded-none bg-border [&>div]:bg-primary" />
+              <Progress value={progress} className="h-1 rounded-none bg-secondary [&>div]:bg-primary" />
             </div>
 
-            <p className="text-[10px] text-muted-foreground text-right uppercase tracking-wider pt-1">{progress}% completo</p>
+            <p className="text-[10px] text-muted-foreground text-right uppercase tracking-wider pt-2 font-heading">{progress}% completo</p>
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Nome</label>
+                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Nome</label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="name" required value={form.name} onChange={handleChange} className="form-input pl-10" placeholder="Seu nome completo" />
                 </div>
               </div>
               <div>
-                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Empresa</label>
+                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Empresa</label>
                 <div className="relative">
                   <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="company" value={form.company} onChange={handleChange} className="form-input pl-10" placeholder="Sua empresa" />
@@ -124,14 +126,14 @@ const RegistrationForm = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">E-mail Corporativo</label>
+                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">E-mail Corporativo</label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="email" type="email" required value={form.email} onChange={handleChange} className="form-input pl-10" placeholder="nome@empresa.com" />
                 </div>
               </div>
               <div>
-                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">WhatsApp</label>
+                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">WhatsApp</label>
                 <div className="relative">
                   <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="phone" type="tel" required value={form.phone} onChange={handleChange} className="form-input pl-10" placeholder="(11) 99999-9999" />
@@ -140,7 +142,7 @@ const RegistrationForm = () => {
             </div>
 
             <div>
-              <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Cargo</label>
+              <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Cargo</label>
               <div className="relative">
                 <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                 <input name="role" value={form.role} onChange={handleChange} className="form-input pl-10" placeholder="CEO, Diretor, Gerente..." />
@@ -149,21 +151,21 @@ const RegistrationForm = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Camiseta</label>
+                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Camiseta</label>
                 <select name="shirtSize" required value={form.shirtSize} onChange={handleChange} className="form-input">
                   <option value="">Tamanho</option>
                   {shirtSizes.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-[10px] font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">Distância</label>
+                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Distância</label>
                 <div className="flex gap-2">
                   {distances.map((d) => (
                     <label
                       key={d}
-                      className={`flex-1 text-center cursor-pointer rounded-lg py-3 text-xs font-medium transition-all duration-200 ${
+                      className={`flex-1 text-center cursor-pointer rounded-lg py-3 text-xs font-bold uppercase transition-all duration-200 font-heading ${
                         form.distance === d
-                          ? "bg-primary text-primary-foreground font-bold"
+                          ? "bg-primary text-primary-foreground"
                           : "border border-border text-muted-foreground hover:border-primary/30"
                       }`}
                     >
@@ -176,7 +178,7 @@ const RegistrationForm = () => {
             </div>
 
             <div>
-              <label className="block text-[10px] font-medium text-muted-foreground mb-2 uppercase tracking-wider">Preferência de horário</label>
+              <label className="block text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider font-heading">Preferência de horário</label>
               <div className="flex gap-6">
                 <label className="flex items-center gap-2 cursor-pointer text-sm text-foreground">
                   <input type="checkbox" name="scheduleWeeknight" checked={form.scheduleWeeknight} onChange={handleChange} className="w-4 h-4 rounded accent-primary" />
@@ -194,10 +196,10 @@ const RegistrationForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="btn-neon w-full py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider mt-2 flex items-center justify-center gap-2 disabled:opacity-50"
+              className="btn-sport w-full py-4 text-sm mt-2 flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
-              {loading ? "Enviando..." : "Confirmar inscrição"}
+              {loading ? "ENVIANDO..." : "CONFIRMAR INSCRIÇÃO"}
             </button>
           </form>
         </ScrollReveal>

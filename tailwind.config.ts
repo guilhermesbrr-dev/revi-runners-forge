@@ -15,7 +15,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
+        heading: ['Oswald', 'sans-serif'],
+        display: ['Bebas Neue', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -80,10 +81,6 @@ export default {
           from: { opacity: "0", transform: "translateY(30px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
-        "count-pulse": {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.7" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -93,7 +90,7 @@ export default {
         "fade-up-d2": "fade-up 0.7s ease-out 0.2s forwards",
         "fade-up-d3": "fade-up 0.7s ease-out 0.3s forwards",
         "fade-up-d4": "fade-up 0.7s ease-out 0.4s forwards",
-        "count-pulse": "count-pulse 2s ease-in-out infinite",
+        "fade-up-d5": "fade-up 0.7s ease-out 0.5s forwards",
       },
     },
   },

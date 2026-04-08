@@ -2,48 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Bebas+Neue&display=swap');
 
 @layer base {
   :root {
-    --background: 216 100% 12%;
+    --background: 214 100% 8%;
     --foreground: 0 0% 100%;
 
-    --card: 216 60% 10%;
+    --card: 214 60% 12%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 216 60% 10%;
+    --popover: 214 60% 10%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 83 100% 50%;
-    --primary-foreground: 216 100% 8%;
+    --primary: 78 100% 50%;
+    --primary-foreground: 214 100% 8%;
 
-    --secondary: 216 40% 16%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 214 50% 18%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 216 30% 18%;
-    --muted-foreground: 216 15% 55%;
+    --muted: 214 30% 20%;
+    --muted-foreground: 214 15% 55%;
 
-    --accent: 83 100% 50%;
-    --accent-foreground: 216 100% 8%;
+    --accent: 210 100% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 216 25% 18%;
-    --input: 216 25% 14%;
-    --ring: 83 100% 50%;
+    --border: 214 25% 20%;
+    --input: 214 25% 14%;
+    --ring: 78 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 216 80% 8%;
+    --sidebar-background: 214 80% 6%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 83 100% 50%;
-    --sidebar-primary-foreground: 216 100% 8%;
-    --sidebar-accent: 216 30% 20%;
+    --sidebar-primary: 78 100% 50%;
+    --sidebar-primary-foreground: 214 100% 8%;
+    --sidebar-accent: 214 30% 20%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 216 25% 20%;
-    --sidebar-ring: 83 100% 50%;
+    --sidebar-border: 214 25% 20%;
+    --sidebar-ring: 78 100% 50%;
   }
 }
 
@@ -55,19 +55,25 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
-    background: radial-gradient(ellipse at 50% 0%, hsl(216 100% 12%) 0%, hsl(220 100% 4%) 70%);
-    background-attachment: fixed;
     min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
   }
 }
 
 @layer utilities {
+  .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
   .text-glow {
-    text-shadow: 0 0 20px hsl(83 100% 50% / 0.4), 0 0 60px hsl(83 100% 50% / 0.15);
+    text-shadow: 0 0 30px hsl(78 100% 50% / 0.5), 0 0 80px hsl(78 100% 50% / 0.2);
+  }
+
+  .text-glow-sm {
+    text-shadow: 0 0 15px hsl(78 100% 50% / 0.3);
   }
 
   @keyframes fade-up {
@@ -79,64 +85,152 @@
   .animate-fade-up-d2 { animation: fade-up 0.8s ease-out 0.2s forwards; }
   .animate-fade-up-d3 { animation: fade-up 0.8s ease-out 0.3s forwards; }
   .animate-fade-up-d4 { animation: fade-up 0.8s ease-out 0.4s forwards; }
+  .animate-fade-up-d5 { animation: fade-up 0.8s ease-out 0.5s forwards; }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(78 100% 50% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(78 100% 50% / 0.6), 0 0 60px hsl(78 100% 50% / 0.2); }
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .diagonal-stripe {
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 8px,
+      hsl(78 100% 50% / 0.03) 8px,
+      hsl(78 100% 50% / 0.03) 16px
+    );
+  }
 }
 
 @layer components {
-  .glass-card {
-    background: hsla(216, 40%, 8%, 0.6);
-    backdrop-filter: blur(16px);
-    border: 1px solid hsla(216, 25%, 20%, 0.4);
+  .sport-card {
+    @apply rounded-xl transition-all duration-300;
+    background: hsl(214 60% 12%);
+    border: 1px solid hsl(214 25% 22%);
   }
 
-  .btn-neon {
-    @apply font-bold tracking-wider transition-all duration-300;
-    background: hsl(83 100% 50%);
-    color: hsl(216 100% 6%);
+  .sport-card:hover {
+    border-color: hsl(78 100% 50% / 0.3);
+    box-shadow: 0 0 30px hsl(78 100% 50% / 0.05);
   }
 
-  .btn-neon:hover {
-    box-shadow: 0 0 30px hsl(83 100% 50% / 0.35);
-    transform: translateY(-1px);
+  .sport-card-white {
+    @apply rounded-xl;
+    background: hsl(0 0% 100%);
+    color: hsl(214 100% 8%);
   }
 
-  .btn-ghost {
-    @apply font-semibold tracking-wider transition-all duration-300;
-    border: 1px solid hsl(83 100% 50%);
-    color: hsl(83 100% 50%);
+  .sport-card-accent {
+    @apply rounded-xl;
+    background: hsl(210 100% 55%);
+    color: hsl(0 0% 100%);
+  }
+
+  .btn-sport {
+    @apply font-bold uppercase tracking-wider transition-all duration-300 rounded-lg;
+    background: hsl(78 100% 50%);
+    color: hsl(214 100% 6%);
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.1em;
+  }
+
+  .btn-sport:hover {
+    box-shadow: 0 0 30px hsl(78 100% 50% / 0.5), 0 0 60px hsl(78 100% 50% / 0.2);
+    transform: translateY(-2px);
+  }
+
+  .btn-sport:active {
+    transform: translateY(0);
+  }
+
+  .btn-outline-sport {
+    @apply font-bold uppercase tracking-wider transition-all duration-300 rounded-lg;
+    border: 2px solid hsl(0 0% 100% / 0.3);
+    color: hsl(0 0% 100%);
     background: transparent;
+    font-family: 'Oswald', sans-serif;
   }
 
-  .btn-ghost:hover {
-    background: hsl(83 100% 50%);
-    color: hsl(216 100% 6%);
-    box-shadow: 0 0 20px hsl(83 100% 50% / 0.25);
+  .btn-outline-sport:hover {
+    border-color: hsl(78 100% 50%);
+    color: hsl(78 100% 50%);
+    background: hsl(78 100% 50% / 0.05);
+  }
+
+  .badge-sport {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest;
+    background: hsl(78 100% 50% / 0.1);
+    color: hsl(78 100% 50%);
+    border: 1px solid hsl(78 100% 50% / 0.2);
+  }
+
+  .badge-blue {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest;
+    background: hsl(210 100% 55% / 0.15);
+    color: hsl(210 100% 65%);
+    border: 1px solid hsl(210 100% 55% / 0.2);
   }
 
   .form-input {
     @apply w-full rounded-lg px-4 py-3 text-sm transition-all duration-200 outline-none;
-    background: hsla(216, 30%, 8%, 0.8);
-    border: 1px solid hsl(216 25% 18%);
+    background: hsl(214 30% 10%);
+    border: 1px solid hsl(214 25% 22%);
     color: hsl(0 0% 100%);
   }
 
   .form-input::placeholder {
-    color: hsl(216 15% 40%);
+    color: hsl(214 15% 40%);
   }
 
   .form-input:focus {
-    border-color: hsl(83 100% 50% / 0.4);
-    box-shadow: 0 0 0 2px hsl(83 100% 50% / 0.08);
+    border-color: hsl(78 100% 50% / 0.5);
+    box-shadow: 0 0 0 3px hsl(78 100% 50% / 0.1);
   }
 
   .sponsor-logo {
     @apply transition-all duration-500;
-    filter: brightness(1.2) grayscale(100%);
-    opacity: 0.3;
+    filter: grayscale(100%) brightness(0.6);
+    opacity: 0.5;
   }
 
   .sponsor-logo:hover {
-    filter: brightness(1.5) grayscale(0%);
+    filter: grayscale(0%) brightness(1);
     opacity: 1;
-    box-shadow: 0 0 12px hsl(83 100% 50% / 0.15);
+  }
+
+  /* Grunge texture overlay */
+  .bg-texture {
+    position: relative;
+  }
+  .bg-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, hsl(210 100% 20% / 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, hsl(210 100% 30% / 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, hsl(214 100% 5% / 0.8) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Speed lines decorative */
+  .speed-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(78 100% 50% / 0.15), transparent);
+    border-radius: 999px;
   }
 }

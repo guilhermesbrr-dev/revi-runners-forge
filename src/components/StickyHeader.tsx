@@ -25,7 +25,7 @@ const StickyHeader = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "py-2 bg-background/90 backdrop-blur-xl border-b border-border/30"
+          ? "py-2 bg-background/95 backdrop-blur-xl border-b border-border/30"
           : "py-4 bg-transparent"
       }`}
     >
@@ -38,7 +38,7 @@ const StickyHeader = () => {
             width={512}
             height={512}
           />
-          <span className={`font-heading font-bold text-foreground transition-all duration-500 ${scrolled ? "text-xs" : "text-sm"}`}>
+          <span className={`font-heading font-bold text-foreground uppercase tracking-wider transition-all duration-500 ${scrolled ? "text-xs" : "text-sm"}`}>
             Revi Runners
           </span>
         </a>
@@ -48,7 +48,7 @@ const StickyHeader = () => {
             <a
               key={item.href}
               href={item.href}
-              className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground hover:text-primary transition-colors duration-300"
+              className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground hover:text-primary transition-colors duration-300 font-heading font-medium"
             >
               {item.label}
             </a>
@@ -57,11 +57,11 @@ const StickyHeader = () => {
 
         <button
           onClick={scrollToForm}
-          className={`btn-ghost rounded-md font-bold uppercase tracking-wider transition-all duration-500 ${
-            scrolled ? "text-[10px] px-4 py-1.5" : "text-[10px] px-5 py-2"
+          className={`btn-sport rounded-lg transition-all duration-500 ${
+            scrolled ? "text-[10px] px-4 py-2" : "text-[11px] px-5 py-2.5"
           }`}
         >
-          Inscrição
+          INSCRIÇÃO
         </button>
       </div>
     </header>
