@@ -53,7 +53,7 @@ const CalendarSection = () => (
               <div className="flex-1 text-center md:text-left">
                 <p className="text-foreground text-sm font-medium flex items-center justify-center md:justify-start gap-2">
                   <Clock className="w-3.5 h-3.5 text-accent" />
-                  {ev.time}h
+                  {ev.time === "A definir" ? ev.time : `${ev.time}h`}
                 </p>
                 <p className="text-muted-foreground text-xs flex items-center justify-center md:justify-start gap-1.5 mt-1">
                   <MapPin className="w-3 h-3" />
