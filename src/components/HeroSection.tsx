@@ -98,13 +98,23 @@ const HeroSection = () => {
 
         {/* Countdown */}
         <div className="mb-12 opacity-0 animate-fade-up-d3">
-          <p className="text-[11px] text-muted-foreground uppercase tracking-[0.3em] mb-5 font-heading">Próximo treino em</p>
-          <div className="flex justify-center gap-6 md:gap-10">
-            <CountdownUnit value={countdown.days} label="Dias" />
-            <CountdownUnit value={countdown.hours} label="Horas" />
-            <CountdownUnit value={countdown.minutes} label="Min" />
-            <CountdownUnit value={countdown.seconds} label="Seg" />
-          </div>
+          {countdown.isFinished ? (
+            <div className="sport-card inline-block px-8 py-4 border-primary/40">
+              <p className="font-heading text-xl md:text-2xl text-primary text-glow uppercase tracking-wide">
+                🏃 O treino começou! Te esperamos no Portão 6.
+              </p>
+            </div>
+          ) : (
+            <>
+              <p className="text-[11px] text-muted-foreground uppercase tracking-[0.3em] mb-5 font-heading">Próximo treino em</p>
+              <div className="flex justify-center gap-6 md:gap-10">
+                <CountdownUnit value={countdown.days} label="Dias" />
+                <CountdownUnit value={countdown.hours} label="Horas" />
+                <CountdownUnit value={countdown.minutes} label="Min" />
+                <CountdownUnit value={countdown.seconds} label="Seg" />
+              </div>
+            </>
+          )}
         </div>
 
         {/* CTA */}
