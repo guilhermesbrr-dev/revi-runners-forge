@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import heroImg from "@/assets/hero-bg.jpg";
 import logoImg from "@/assets/revi-logo.png";
 
-const TARGET_DATE = new Date("2026-04-08T19:00:00-03:00");
+const TARGET_DATE = new Date("2026-04-25T07:15:00-03:00");
 
 const useCountdown = (target: Date) => {
   const calc = () => {
@@ -12,6 +12,7 @@ const useCountdown = (target: Date) => {
       hours: Math.floor((diff % 86400000) / 3600000),
       minutes: Math.floor((diff % 3600000) / 60000),
       seconds: Math.floor((diff % 60000) / 1000),
+      isFinished: diff === 0,
     };
   };
   const [t, setT] = useState(calc);
@@ -97,13 +98,23 @@ const HeroSection = () => {
 
         {/* Countdown */}
         <div className="mb-12 opacity-0 animate-fade-up-d3">
-          <p className="text-[11px] text-muted-foreground uppercase tracking-[0.3em] mb-5 font-heading">Próximo treino em</p>
-          <div className="flex justify-center gap-6 md:gap-10">
-            <CountdownUnit value={countdown.days} label="Dias" />
-            <CountdownUnit value={countdown.hours} label="Horas" />
-            <CountdownUnit value={countdown.minutes} label="Min" />
-            <CountdownUnit value={countdown.seconds} label="Seg" />
-          </div>
+          {countdown.isFinished ? (
+            <div className="sport-card inline-block px-8 py-4 border-primary/40">
+              <p className="font-heading text-xl md:text-2xl text-primary text-glow uppercase tracking-wide">
+                🏃 O treino começou! Te esperamos no Portão 6.
+              </p>
+            </div>
+          ) : (
+            <>
+              <p className="text-[11px] text-muted-foreground uppercase tracking-[0.3em] mb-5 font-heading">Próximo treino em</p>
+              <div className="flex justify-center gap-6 md:gap-10">
+                <CountdownUnit value={countdown.days} label="Dias" />
+                <CountdownUnit value={countdown.hours} label="Horas" />
+                <CountdownUnit value={countdown.minutes} label="Min" />
+                <CountdownUnit value={countdown.seconds} label="Seg" />
+              </div>
+            </>
+          )}
         </div>
 
         {/* CTA */}
