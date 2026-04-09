@@ -6,12 +6,12 @@ const sponsors = [
   { name: "Uappi", url: "https://uappi.com.br/", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB71hNovAOAVv1T4rRjOLLI8KJKKZO94cpHg&s", height: "h-[35px]" },
   { name: "Snugg", url: "https://www.snuggwear.com.br/", logo: "https://dcdn-us.mitiendanube.com/stores/005/889/505/themes/common/ogimage-239390870-1748374953-a20231bb46195117c175c5f8bedd9b411748374953.png?0", height: "h-[35px]" },
   { name: "Velocitá", url: "https://velocita.com.br", logo: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1481/d07056cb-f9d3-476b-a97e-637e9c141ada", height: "h-[35px]" },
-  { name: "Z2", url: "https://z2performance.com/", logo: "https://z2performance.com/cdn/shop/files/logo_Z2_azul_1200x1200.png?v=1722533849", height: "h-[35px]" },
-  { name: "Widde", url: "https://widde.io/", logo: "https://www.projetodraft.com/wp-content/uploads/2022/10/widde.png", height: "h-[35px]" },
-  { name: "Eitri", url: "https://www.eitri.tech/pt/", logo: "https://inngage.com.br/wp-content/uploads/2025/05/eitri@3x.png", height: "h-[35px]" },
+  { name: "Z2", url: "https://z2performance.com/", logo: "https://z2performance.com/cdn/shop/files/logo_Z2_azul_1200x1200.png?v=1722533849", height: "h-[50px]" },
+  { name: "Widde", url: "https://widde.io/", logo: "https://www.projetodraft.com/wp-content/uploads/2022/10/widde.png", height: "h-[50px]" },
+  { name: "Eitri", url: "https://www.eitri.tech/pt/", logo: "https://inngage.com.br/wp-content/uploads/2025/05/eitri@3x.png", height: "h-[50px]" },
   { name: "Appmax", url: "https://appmax.com.br/", logo: "https://blog.appmax.com.br/wp-content/uploads/2020/01/APPMAX_LOGO_LILA%CC%81S-2.webp", height: "h-[35px]" },
   { name: "Wicomm", url: "https://www.wicomm.com.br/", logo: "https://lirp.cdn-website.com/c88c0c2e/dms3rep/multi/opt/logo-positivo+%284%29-640w.png", height: "h-[25px]" },
-  { name: "Caju Brasil", url: "https://www.cajubrasil.com.br/", logo: "https://cajubrasil.com/pt-br/wp-content/uploads/sites/5/2023/02/cropped-logo-wordpress-4.png", height: "h-[35px]" },
+  { name: "Caju Brasil", url: "https://www.cajubrasil.com.br/", logo: "https://cajubrasil.com/pt-br/wp-content/uploads/sites/5/2023/02/cropped-logo-wordpress-4.png", height: "h-[50px]" },
   { name: "PowerFocus", url: "https://www.powerfocus.com.br/", logo: "https://storage.googleapis.com/housi-images/appspace/parceiros/powerfocus-logo.png", height: "h-[35px]" },
 ];
 
@@ -46,7 +46,7 @@ const SponsorsSection = () => (
                     <img
                       src={logo}
                       alt={name}
-                      className={`${height} w-auto max-w-[100px] object-contain`}
+                      className={`${height} w-auto max-w-[120px] object-contain`}
                       loading="lazy"
                     />
                   </a>

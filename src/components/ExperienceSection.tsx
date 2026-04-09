@@ -6,7 +6,7 @@ const experiences = [
     icon: HeartPulse,
     badge: "PERFORMANCE",
     title: "Treinos de Alta Performance",
-    description: "Assessoria esportiva profissional com treinos técnicos mensais no Ibirapuera. Do iniciante ao maratonista.",
+    description: "Comunidade de corrida e networking com treinos técnicos mensais no Ibirapuera. Do iniciante ao maratonista.",
     color: "text-accent",
   },
   {
