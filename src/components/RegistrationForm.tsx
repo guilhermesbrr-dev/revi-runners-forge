@@ -10,13 +10,14 @@ const RegistrationForm = () => {
   const [form, setForm] = useState({
     name: "", email: "", phone: "", company: "", role: "",
     shirtSize: "", distance: "", scheduleWeeknight: false, scheduleSaturday: false,
+    participation: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const progress = useMemo(() => {
-    const fields = [form.name, form.email, form.phone, form.company, form.role, form.shirtSize, form.distance];
+    const fields = [form.name, form.email, form.phone, form.company, form.role, form.shirtSize, form.distance, form.participation];
     const checks = [form.scheduleWeeknight || form.scheduleSaturday];
     const filled = fields.filter(Boolean).length + checks.filter(Boolean).length;
     return Math.round((filled / (fields.length + checks.length)) * 100);
@@ -44,6 +45,7 @@ const RegistrationForm = () => {
       Cargo: form.role,
       "Tamanho Camiseta": form.shirtSize,
       Distância: form.distance,
+      "Modalidade de Participação": form.participation,
       "Horário": [
         form.scheduleWeeknight ? "Noite (semana)" : "",
         form.scheduleSaturday ? "Manhã (sábado)" : "",
@@ -51,7 +53,7 @@ const RegistrationForm = () => {
     };
 
     try {
-      const res = await fetch("https://formspree.io/f/xwpkgjvn", {
+      const res = await fetch("https://formspree.io/f/mwvwywyl", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
@@ -77,7 +79,7 @@ const RegistrationForm = () => {
               <Send className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-heading text-2xl font-bold text-foreground uppercase mb-3">Inscrição Confirmada!</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">Em breve entraremos em contato com os detalhes do seu kit.</p>
+            <p className="text-muted-foreground text-sm leading-relaxed">Em breve entraremos em contato.</p>
           </div>
         </div>
       </section>
@@ -174,6 +176,28 @@ const RegistrationForm = () => {
                     </label>
                   ))}
                 </div>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider font-heading">Modalidade de participação</label>
+              <div className="flex flex-col gap-2">
+                <label className={`cursor-pointer rounded-lg px-4 py-3 text-xs font-bold uppercase transition-all duration-200 font-heading text-center ${
+                  form.participation === "corrida_networking"
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground hover:border-primary/30"
+                }`}>
+                  <input type="radio" name="participation" value="corrida_networking" checked={form.participation === "corrida_networking"} onChange={handleChange} className="sr-only" />
+                  Vou correr e participar do networking
+                </label>
+                <label className={`cursor-pointer rounded-lg px-4 py-3 text-xs font-bold uppercase transition-all duration-200 font-heading text-center ${
+                  form.participation === "apenas_networking"
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border text-muted-foreground hover:border-primary/30"
+                }`}>
+                  <input type="radio" name="participation" value="apenas_networking" checked={form.participation === "apenas_networking"} onChange={handleChange} className="sr-only" />
+                  Vou apenas para o café e networking
+                </label>
               </div>
             </div>
 

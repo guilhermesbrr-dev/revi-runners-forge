@@ -3,10 +3,11 @@ import { ChevronDown } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const faqs = [
-  { q: "Onde guardar pertences?", a: "Disponibilizamos um espaço seguro com armários no ponto de encontro para que você possa guardar seus pertences durante o treino." },
-  { q: "Haverá hidratação no percurso?", a: "Sim. Montamos pontos de hidratação a cada 3km com água e isotônico, além de frutas e barras energéticas no pós-treino." },
+  { q: "Sobre os treinos", a: "Comunidade de corrida e networking com encontros mensais no Ibirapuera. Um ecossistema para todos os níveis, do iniciante ao maratonista." },
+  { q: "Onde guardar pertences?", a: "O time Revi Runners estará presente no ponto de encontro para garantir que seus pertences fiquem em um local seguro enquanto você corre." },
+  { q: "Haverá hidratação no percurso?", a: "Disponibilizamos água para todos os participantes. Recomendamos trazer sua própria garrafa para hidratação durante o percurso." },
   { q: "O que compõe o kit mensal?", a: "O kit varia a cada edição e inclui camiseta técnica exclusiva, brindes dos patrocinadores, cupons de desconto e itens surpresa das marcas parceiras." },
-  { q: "Como funciona o networking após a corrida?", a: "Após o treino, realizamos um coffee networking de 30 minutos onde os participantes se conectam em um ambiente descontraído, com dinâmicas de apresentação rápida." },
+  { q: "Como funciona o networking após a corrida?", a: "Após o treino, desfrutamos de um momento de networking onde os participantes se conectam em um ambiente descontraído." },
 ];
 
 const FAQSection = () => {
