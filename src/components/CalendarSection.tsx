@@ -3,19 +3,19 @@ import ScrollReveal from "./ScrollReveal";
 
 const events = [
   {
-    day: "08", month: "ABR", year: "2026", time: "19:00", type: "NOTURNO",
-    location: "Portão 6 · Ibirapuera",
-    calendarUrl: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NzBkOWJvYTNzZTV1Z3NwM2g0OW8zZDRnaDMgZ3VpbGhlcm1lQHVzZXJldmkuY29t&tmsrc=guilherme%40userevi.com",
-    highlight: true,
-  },
-  {
     day: "25", month: "ABR", year: "2026", time: "07:15", type: "MATUTINO",
     location: "Portão 6 · Ibirapuera",
     calendarUrl: "https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N3VvOXFoZjBxcjBxOWhhNmVjOXRjam9sZWsgZ3VpbGhlcm1lQHVzZXJldmkuY29t&tmsrc=guilherme%40userevi.com",
-    highlight: false,
+    highlight: true,
   },
   {
     day: "—", month: "MAI", year: "2026", time: "A definir", type: "EM BREVE",
+    location: "Portão 6 · Ibirapuera",
+    calendarUrl: null,
+    highlight: false,
+  },
+  {
+    day: "—", month: "JUN", year: "2026", time: "A definir", type: "EM BREVE",
     location: "Portão 6 · Ibirapuera",
     calendarUrl: null,
     highlight: false,
