@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import heroImg from "@/assets/hero-bg.jpg";
 import logoImg from "@/assets/revi-logo.png";
 
-const TARGET_DATE = new Date("2026-04-08T19:00:00-03:00");
+const TARGET_DATE = new Date("2026-04-25T07:15:00-03:00");
 
 const useCountdown = (target: Date) => {
   const calc = () => {
@@ -12,6 +12,7 @@ const useCountdown = (target: Date) => {
       hours: Math.floor((diff % 86400000) / 3600000),
       minutes: Math.floor((diff % 3600000) / 60000),
       seconds: Math.floor((diff % 60000) / 1000),
+      isFinished: diff === 0,
     };
   };
   const [t, setT] = useState(calc);
