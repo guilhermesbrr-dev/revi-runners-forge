@@ -35,7 +35,7 @@ const SponsorsSection = () => (
             <div className="overflow-hidden">
               <div className="flex animate-scroll-left w-max gap-12 items-center">
                 {/* Double the logos for seamless loop */}
-                {[...sponsors, ...sponsors].map(({ name, url, logo }, i) => (
+                {[...sponsors, ...sponsors].map(({ name, url, logo, height }, i) => (
                   <a
                     key={`${name}-${i}`}
                     href={url}
@@ -46,7 +46,7 @@ const SponsorsSection = () => (
                     <img
                       src={logo}
                       alt={name}
-                      className="h-[35px] w-auto max-w-[100px] object-contain"
+                      className={`${height} w-auto max-w-[100px] object-contain`}
                       loading="lazy"
                     />
                   </a>
