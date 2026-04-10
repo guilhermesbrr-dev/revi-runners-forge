@@ -31,7 +31,7 @@ const MapSection = () => (
       <ScrollReveal delay={200}>
         <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
           <a
-            href="https://www.strava.com/clubs/revirunners"
+            href="https://strava.app.link/Gzf82W2jc2b"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline-sport px-6 py-3 text-[11px] flex items-center justify-center gap-2"

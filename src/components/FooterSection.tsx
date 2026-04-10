@@ -11,7 +11,7 @@ const FooterSection = () => (
         <a href="https://www.instagram.com/revi_br/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/40 hover:text-primary transition-colors duration-300">
           <Instagram className="w-5 h-5" />
         </a>
-        <a href="https://www.strava.com/clubs/revirunners" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/40 hover:text-primary transition-colors duration-300">
+        <a href="https://strava.app.link/Gzf82W2jc2b" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/40 hover:text-primary transition-colors duration-300">
           <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
             <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169" />
           </svg>
