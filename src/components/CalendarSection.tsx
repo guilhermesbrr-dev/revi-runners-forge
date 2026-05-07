@@ -3,9 +3,9 @@ import ScrollReveal from "./ScrollReveal";
 
 const events = [
   {
-    day: "30", month: "MAI", year: "2026", time: "08:00", type: "MATUTINO",
+    day: "21", month: "MAI", year: "2026", time: "18:30", type: "VESPERTINO",
     location: "Portão 6 · Ibirapuera",
-    calendarUrl: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Revi+Runners+-+Treino&dates=20260530T110000Z/20260530T130000Z&location=Port%C3%A3o+6+-+Parque+Ibirapuera&details=Treino+da+comunidade+Revi+Runners",
+    calendarUrl: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Revi+Runners+-+Treino&dates=20260521T213000Z/20260521T233000Z&location=Port%C3%A3o+6+-+Parque+Ibirapuera&details=Treino+da+comunidade+Revi+Runners",
     highlight: true,
   },
   {

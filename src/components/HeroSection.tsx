@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import heroImg from "@/assets/hero-bg.jpg";
 import logoImg from "@/assets/revi-logo.png";
 
-const TARGET_DATE = new Date("2026-05-30T08:00:00-03:00");
+const TARGET_DATE = new Date("2026-05-21T18:30:00-03:00");
 
 const useCountdown = (target: Date) => {
   const calc = () => {
