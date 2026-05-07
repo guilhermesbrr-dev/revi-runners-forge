@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import heroImg from "@/assets/hero-bg.jpg";
 import logoImg from "@/assets/revi-logo.png";
 
-const TARGET_DATE = new Date("2026-04-25T07:15:00-03:00");
+const TARGET_DATE = new Date("2026-05-30T08:00:00-03:00");
 
 const useCountdown = (target: Date) => {
   const calc = () => {
@@ -101,7 +101,7 @@ const HeroSection = () => {
           {countdown.isFinished ? (
             <div className="sport-card inline-block px-8 py-4 border-primary/40">
               <p className="font-heading text-xl md:text-2xl text-primary text-glow uppercase tracking-wide">
-                🏃 O treino começou! Te esperamos no Portão 6.
+                🏃 O treino começou!
               </p>
             </div>
           ) : (
