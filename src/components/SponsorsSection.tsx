@@ -1,7 +1,7 @@
 import ScrollReveal from "./ScrollReveal";
 
 const sponsors = [
-  { name: "GoldKo", url: "https://www.goldko.com.br/", logo: "https://arnold.savagetgroup.com.br/wp-content/uploads/2025/12/goldko-v2.webp", height: "h-[55px]" },
+  { name: "GoldKo", url: "https://www.goldko.com.br/", logo: "https://arnold.savagetgroup.com.br/wp-content/uploads/2025/12/goldko-v2.webp", height: "h-[65px]" },
   { name: "Uappi", url: "https://uappi.com.br/", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB71hNovAOAVv1T4rRjOLLI8KJKKZO94cpHg&s", height: "h-[35px]" },
   { name: "Snugg", url: "https://www.snuggwear.com.br/", logo: "https://dcdn-us.mitiendanube.com/stores/005/889/505/themes/common/ogimage-239390870-1748374953-a20231bb46195117c175c5f8bedd9b411748374953.png?0", height: "h-[35px]" },
   { name: "Velocitá", url: "https://velocita.com.br", logo: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1481/d07056cb-f9d3-476b-a97e-637e9c141ada", height: "h-[35px]" },
@@ -13,9 +13,9 @@ const sponsors = [
   { name: "Caju Brasil", url: "https://www.cajubrasil.com.br/", logo: "https://cajubrasil.com/pt-br/wp-content/uploads/sites/5/2023/02/cropped-logo-wordpress-4.png", height: "h-[50px]" },
   { name: "PowerFocus", url: "https://www.powerfocus.com.br/", logo: "https://storage.googleapis.com/housi-images/appspace/parceiros/powerfocus-logo.png", height: "h-[35px]" },
   { name: "Água na Caixa", url: "https://www.aguanacaixa.com.br/", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoYDPoO13ItMJjKbLs3Lf7WUvwxw1C7rHduA&s", height: "h-[50px]" },
-  { name: "Dom Pagamentos", url: "https://dompagamentos.com.br/", logo: "https://cdn.prod.website-files.com/682ffb2a47584fbeb9a49ddf/6830552e9d62a66cfc80e191_dom.png", height: "h-[40px]" },
+  { name: "Dom Pagamentos", url: "https://dompagamentos.com.br/", logo: "https://cdn.prod.website-files.com/682ffb2a47584fbeb9a49ddf/6830552e9d62a66cfc80e191_dom.png", height: "h-[50px]" },
   { name: "Deza", url: "https://www.deza.ag/", logo: "https://www.deza.ag/cdn/shop/files/favicon.png?v=1776304804", height: "h-[45px]" },
-  { name: "Glow", url: "https://www.souglow.com.br/", logo: "https://www.souglow.com.br/assets/logo-glow.svg", height: "h-[45px]" },
+  { name: "Glow", url: "https://www.souglow.com.br/", logo: "https://www.souglow.com.br/assets/logo-glow.svg", height: "h-[35px]" },
 ];
 
 const SponsorsSection = () => (
