@@ -9,6 +9,12 @@ const events = [
     highlight: true,
   },
   {
+    day: "30", month: "MAI", year: "2026", time: "08:00", type: "MATUTINO",
+    location: "Portão 6 · Ibirapuera",
+    calendarUrl: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Revi+Runners+-+Treino&dates=20260530T110000Z/20260530T130000Z&location=Port%C3%A3o+6+-+Parque+Ibirapuera&details=Treino+da+comunidade+Revi+Runners",
+    highlight: false,
+  },
+  {
     day: "—", month: "JUN", year: "2026", time: "A definir", type: "EM BREVE",
     location: "Portão 6 · Ibirapuera",
     calendarUrl: null,
