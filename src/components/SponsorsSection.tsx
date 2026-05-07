@@ -15,7 +15,7 @@ const sponsors = [
   { name: "PowerFocus", url: "https://www.powerfocus.com.br/", logo: "https://storage.googleapis.com/housi-images/appspace/parceiros/powerfocus-logo.png", height: "h-[35px]" },
   { name: "Água na Caixa", url: "https://www.aguanacaixa.com.br/", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoYDPoO13ItMJjKbLs3Lf7WUvwxw1C7rHduA&s", height: "h-[50px]" },
   { name: "Dom Pagamentos", url: "https://dompagamentos.com.br/", logo: "https://cdn.prod.website-files.com/682ffb2a47584fbeb9a49ddf/6830552e9d62a66cfc80e191_dom.png", height: "h-[40px]" },
-  { name: "Deza", url: "https://www.deza.ag/", logo: "https://cdn.prod.website-files.com/64ac2cd2f0c926c4170cf51b/68ebe8dad4d647931dcbf747_Logo-Deza.svg", height: "h-[45px]" },
+  { name: "Deza", url: "https://www.deza.ag/", logo: "https://www.deza.ag/cdn/shop/files/favicon.png?v=1776304804", height: "h-[45px]" },
   { name: "Glow", url: "https://www.souglow.com.br/", logo: "https://www.souglow.com.br/assets/logo-glow.svg", height: "h-[45px]" },
 ];
 
