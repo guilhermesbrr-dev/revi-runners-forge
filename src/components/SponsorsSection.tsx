@@ -2,7 +2,6 @@ import ScrollReveal from "./ScrollReveal";
 
 const sponsors = [
   { name: "GoldKo", url: "https://www.goldko.com.br/", logo: "https://arnold.savagetgroup.com.br/wp-content/uploads/2025/12/goldko-v2.webp", height: "h-[55px]" },
-  { name: "Biso", url: "https://www.biso.digital/", logo: "https://cdn.prod.website-files.com/68fa856745b8c4cf7f5f6685/6937daeac6aef9759d3ec480_e8a2bbc1-db89-4257-a59b-47bbaae76e6a.png", height: "h-[28px]" },
   { name: "Uappi", url: "https://uappi.com.br/", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB71hNovAOAVv1T4rRjOLLI8KJKKZO94cpHg&s", height: "h-[35px]" },
   { name: "Snugg", url: "https://www.snuggwear.com.br/", logo: "https://dcdn-us.mitiendanube.com/stores/005/889/505/themes/common/ogimage-239390870-1748374953-a20231bb46195117c175c5f8bedd9b411748374953.png?0", height: "h-[35px]" },
   { name: "Velocitá", url: "https://velocita.com.br", logo: "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1481/d07056cb-f9d3-476b-a97e-637e9c141ada", height: "h-[35px]" },
