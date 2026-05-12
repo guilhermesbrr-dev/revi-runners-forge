@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logoImg from "@/assets/revi-logo.png";
+const logoImg = "/favicon.png";
 
 const navItems = [
   { label: "Experience", href: "#experience" },
@@ -34,7 +34,7 @@ const StickyHeader = () => {
           <img
             src={logoImg}
             alt="Revi Runners"
-            className={`transition-all duration-500 ${scrolled ? "w-7 h-7" : "w-9 h-9"}`}
+            className={`object-contain transition-all duration-500 ${scrolled ? "w-8 h-8" : "w-10 h-10"}`}
             width={512}
             height={512}
           />

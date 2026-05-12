@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import heroImg from "@/assets/hero-bg.jpg";
-import logoImg from "@/assets/revi-logo.png";
+const logoImg = "/favicon.png";
 
 const TARGET_DATE = new Date("2026-05-21T18:30:00-03:00");
 
@@ -59,7 +59,7 @@ const HeroSection = () => {
           <img
             src={logoImg}
             alt="Revi Runners"
-            className="w-12 h-12 md:w-14 md:h-14"
+            className="w-28 h-28 md:w-36 md:h-36 object-contain drop-shadow-[0_0_25px_hsl(var(--primary)/0.4)]"
             width={512}
             height={512}
           />
