@@ -18,9 +18,11 @@ const useCountdown = (target: Date) => {
   };
   const [t, setT] = useState(calc);
   useEffect(() => {
-    const id = setInterval(() => setT(calc), 1000);
+    setT(calc());
+    const id = setInterval(() => setT(calc()), 1000);
     return () => clearInterval(id);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [target]);
   return t;
 };
 
