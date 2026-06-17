@@ -1,12 +1,13 @@
 import ScrollReveal from "./ScrollReveal";
-import g1 from "@/assets/gallery-1.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g3 from "@/assets/gallery-3.jpg";
-import g4 from "@/assets/gallery-4.jpg";
-import g5 from "@/assets/gallery-5.jpg";
-import g6 from "@/assets/gallery-6.jpg";
+import g1 from "@/assets/community-1.jpg";
+import g2 from "@/assets/community-2.jpg";
+import g3 from "@/assets/community-3.jpg";
 
-const images = [g1, g2, g3, g4, g5, g6];
+const images = [
+  { src: g1, alt: "Atletas Revi Runners correndo no Parque Ibirapuera" },
+  { src: g2, alt: "Comunidade Revi Runners reunida após treino no Ibirapuera" },
+  { src: g3, alt: "Corredor Revi Runners vestindo camiseta oficial em prova" },
+];
 
 const GallerySection = () => (
   <section id="galeria" className="py-24 px-4">
@@ -20,19 +21,17 @@ const GallerySection = () => (
         </div>
       </ScrollReveal>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-4xl mx-auto">
-        {images.map((src, i) => (
-          <ScrollReveal key={i} delay={i * 80}>
-            <div className="relative overflow-hidden rounded-xl aspect-square group border-2 border-border hover:border-primary/30 transition-colors duration-300">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+        {images.map((img, i) => (
+          <ScrollReveal key={i} delay={i * 100}>
+            <div className="relative overflow-hidden rounded-xl aspect-[3/4] group border-2 border-border hover:border-primary/40 transition-colors duration-300">
               <img
-                src={src}
-                alt={`Revi Runners treino ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
-                width={640}
-                height={640}
               />
-              <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
             </div>
           </ScrollReveal>
         ))}

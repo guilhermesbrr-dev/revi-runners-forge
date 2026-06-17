@@ -1,32 +1,37 @@
 import { useState, useMemo } from "react";
-import { Send, User, Mail, Phone, Building2, Briefcase, Loader2 } from "lucide-react";
+import { Send, User, Mail, Phone, Building2, Briefcase, Loader2, Shirt } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { Progress } from "./ui/progress";
 
 const shirtSizes = ["P", "M", "G", "GG", "XG"];
-const distances = ["5km", "10km", "21km"];
+
+const maskPhone = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length <= 2) return digits.length ? `(${digits}` : "";
+  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  if (digits.length <= 10)
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+};
 
 const RegistrationForm = () => {
   const [form, setForm] = useState({
-    name: "", email: "", phone: "", company: "", role: "",
-    shirtSize: "", distance: "", scheduleWeeknight: false, scheduleSaturday: false,
-    participation: "",
+    name: "", phone: "", email: "", company: "", role: "", shirtSize: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const progress = useMemo(() => {
-    const fields = [form.name, form.email, form.phone, form.company, form.role, form.shirtSize, form.distance, form.participation];
-    const checks = [form.scheduleWeeknight || form.scheduleSaturday];
-    const filled = fields.filter(Boolean).length + checks.filter(Boolean).length;
-    return Math.round((filled / (fields.length + checks.length)) * 100);
+    const values = Object.values(form);
+    const filled = values.filter(Boolean).length;
+    return Math.round((filled / values.length) * 100);
   }, [form]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    if (type === "checkbox") {
-      setForm((f) => ({ ...f, [name]: (e.target as HTMLInputElement).checked }));
+    const { name, value } = e.target;
+    if (name === "phone") {
+      setForm((f) => ({ ...f, phone: maskPhone(value) }));
     } else {
       setForm((f) => ({ ...f, [name]: value }));
     }
@@ -39,17 +44,11 @@ const RegistrationForm = () => {
 
     const payload = {
       Nome: form.name,
-      "E-mail": form.email,
       WhatsApp: form.phone,
+      "E-mail": form.email,
       Empresa: form.company,
       Cargo: form.role,
       "Tamanho Camiseta": form.shirtSize,
-      Distância: form.distance,
-      "Modalidade de Participação": form.participation,
-      "Horário": [
-        form.scheduleWeeknight ? "Noite (semana)" : "",
-        form.scheduleSaturday ? "Manhã (sábado)" : "",
-      ].filter(Boolean).join(", "),
     };
 
     try {
@@ -58,11 +57,8 @@ const RegistrationForm = () => {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
       });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setError("Erro ao enviar. Tente novamente.");
-      }
+      if (res.ok) setSubmitted(true);
+      else setError("Erro ao enviar. Tente novamente.");
     } catch {
       setError("Erro de conexão. Verifique sua internet.");
     } finally {
@@ -85,6 +81,8 @@ const RegistrationForm = () => {
       </section>
     );
   }
+
+  const fieldLabel = "block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading";
 
   return (
     <section id="inscricao" className="py-24 px-4">
@@ -109,109 +107,56 @@ const RegistrationForm = () => {
 
             <p className="text-[10px] text-muted-foreground text-right uppercase tracking-wider pt-2 font-heading">{progress}% completo</p>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Nome</label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
-                  <input name="name" required value={form.name} onChange={handleChange} className="form-input pl-10" placeholder="Seu nome completo" />
-                </div>
-              </div>
-              <div>
-                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Empresa</label>
-                <div className="relative">
-                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
-                  <input name="company" value={form.company} onChange={handleChange} className="form-input pl-10" placeholder="Sua empresa" />
-                </div>
+            <div>
+              <label className={fieldLabel}>Nome</label>
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
+                <input name="name" required value={form.name} onChange={handleChange} className="form-input pl-10" placeholder="Seu nome completo" />
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">E-mail Corporativo</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
-                  <input name="email" type="email" required value={form.email} onChange={handleChange} className="form-input pl-10" placeholder="nome@empresa.com" />
-                </div>
-              </div>
-              <div>
-                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">WhatsApp</label>
+                <label className={fieldLabel}>WhatsApp</label>
                 <div className="relative">
                   <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
                   <input name="phone" type="tel" required value={form.phone} onChange={handleChange} className="form-input pl-10" placeholder="(11) 99999-9999" />
                 </div>
               </div>
-            </div>
-
-            <div>
-              <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Cargo</label>
-              <div className="relative">
-                <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
-                <input name="role" value={form.role} onChange={handleChange} className="form-input pl-10" placeholder="CEO, Diretor, Gerente..." />
+              <div>
+                <label className={fieldLabel}>E-mail</label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
+                  <input name="email" type="email" required value={form.email} onChange={handleChange} className="form-input pl-10" placeholder="seu@email.com" />
+                </div>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Camiseta</label>
-                <select name="shirtSize" required value={form.shirtSize} onChange={handleChange} className="form-input">
-                  <option value="">Tamanho</option>
-                  {shirtSizes.map((s) => <option key={s} value={s}>{s}</option>)}
-                </select>
+                <label className={fieldLabel}>Empresa</label>
+                <div className="relative">
+                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
+                  <input name="company" required value={form.company} onChange={handleChange} className="form-input pl-10" placeholder="Sua empresa" />
+                </div>
               </div>
               <div>
-                <label className="block text-[10px] font-bold text-muted-foreground mb-1.5 uppercase tracking-wider font-heading">Distância</label>
-                <div className="flex gap-2">
-                  {distances.map((d) => (
-                    <label
-                      key={d}
-                      className={`flex-1 text-center cursor-pointer rounded-lg py-3 text-xs font-bold uppercase transition-all duration-200 font-heading ${
-                        form.distance === d
-                          ? "bg-primary text-primary-foreground"
-                          : "border border-border text-muted-foreground hover:border-primary/30"
-                      }`}
-                    >
-                      <input type="radio" name="distance" value={d} checked={form.distance === d} onChange={handleChange} className="sr-only" />
-                      {d}
-                    </label>
-                  ))}
+                <label className={fieldLabel}>Cargo</label>
+                <div className="relative">
+                  <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40" />
+                  <input name="role" required value={form.role} onChange={handleChange} className="form-input pl-10" placeholder="CEO, Diretor..." />
                 </div>
               </div>
             </div>
 
             <div>
-              <label className="block text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider font-heading">Modalidade de participação</label>
-              <div className="flex flex-col gap-2">
-                <label className={`cursor-pointer rounded-lg px-4 py-3 text-xs font-bold uppercase transition-all duration-200 font-heading text-center ${
-                  form.participation === "corrida_networking"
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border text-muted-foreground hover:border-primary/30"
-                }`}>
-                  <input type="radio" name="participation" value="corrida_networking" checked={form.participation === "corrida_networking"} onChange={handleChange} className="sr-only" />
-                  Vou correr e participar do networking
-                </label>
-                <label className={`cursor-pointer rounded-lg px-4 py-3 text-xs font-bold uppercase transition-all duration-200 font-heading text-center ${
-                  form.participation === "apenas_networking"
-                    ? "bg-primary text-primary-foreground"
-                    : "border border-border text-muted-foreground hover:border-primary/30"
-                }`}>
-                  <input type="radio" name="participation" value="apenas_networking" checked={form.participation === "apenas_networking"} onChange={handleChange} className="sr-only" />
-                  Vou apenas para o café e networking
-                </label>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-[10px] font-bold text-muted-foreground mb-2 uppercase tracking-wider font-heading">Preferência de horário</label>
-              <div className="flex gap-6">
-                <label className="flex items-center gap-2 cursor-pointer text-sm text-foreground">
-                  <input type="checkbox" name="scheduleWeeknight" checked={form.scheduleWeeknight} onChange={handleChange} className="w-4 h-4 rounded accent-primary" />
-                  Noite (semana)
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer text-sm text-foreground">
-                  <input type="checkbox" name="scheduleSaturday" checked={form.scheduleSaturday} onChange={handleChange} className="w-4 h-4 rounded accent-primary" />
-                  Manhã (sábado)
-                </label>
+              <label className={fieldLabel}>Tamanho da Camiseta</label>
+              <div className="relative">
+                <Shirt className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/40 z-10" />
+                <select name="shirtSize" required value={form.shirtSize} onChange={handleChange} className="form-input pl-10">
+                  <option value="">Selecione o tamanho</option>
+                  {shirtSizes.map((s) => <option key={s} value={s}>{s}</option>)}
+                </select>
               </div>
             </div>
 
