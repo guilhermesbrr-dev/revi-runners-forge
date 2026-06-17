@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import heroImg from "@/assets/hero-bg.jpg";
+import { getNextEvent } from "@/lib/eventDates";
 const logoImg = "/favicon.png";
 
-const TARGET_DATE = new Date("2026-05-21T18:30:00-03:00");
+const FALLBACK_DATE = new Date("2026-08-22T07:15:00-03:00");
 
 const useCountdown = (target: Date) => {
   const calc = () => {
@@ -33,7 +34,12 @@ const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
 );
 
 const HeroSection = () => {
-  const countdown = useCountdown(TARGET_DATE);
+  const [target, setTarget] = useState<Date>(() => getNextEvent() ?? FALLBACK_DATE);
+  useEffect(() => {
+    const id = setInterval(() => setTarget(getNextEvent() ?? FALLBACK_DATE), 60_000);
+    return () => clearInterval(id);
+  }, []);
+  const countdown = useCountdown(target);
 
   const scrollToForm = () => {
     document.getElementById("inscricao")?.scrollIntoView({ behavior: "smooth" });
