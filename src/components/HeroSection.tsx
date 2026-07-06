@@ -38,7 +38,10 @@ const CountdownUnit = ({ value, label }: { value: number; label: string }) => (
 const HeroSection = () => {
   const [target, setTarget] = useState<Date>(() => getNextEvent() ?? FALLBACK_DATE);
   useEffect(() => {
-    const id = setInterval(() => setTarget(getNextEvent() ?? FALLBACK_DATE), 60_000);
+    const id = setInterval(() => {
+      const next = getNextEvent() ?? FALLBACK_DATE;
+      setTarget((prev) => (prev.getTime() === next.getTime() ? prev : next));
+    }, 1000);
     return () => clearInterval(id);
   }, []);
   const countdown = useCountdown(target);
